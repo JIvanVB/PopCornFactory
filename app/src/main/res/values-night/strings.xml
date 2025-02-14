@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wellcom">Welcome to Popcorn Factory, home of the best series and movies. Just lay donw, make some popcorn and enjoy!</string>
+    <string name="getmein">GET ME IN!</string>
+    <string name="series">Series</string>
+    <string name="movies">Movies</string>
+</resources>
