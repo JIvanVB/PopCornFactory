@@ -1,5 +1,6 @@
 package vazquez.ivan.popcornfactory
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -23,15 +24,19 @@ class DetallePeliculaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val s= intent.getStringExtra("seats")
 
         findViewById<ImageView>(R.id.headerImageView).setImageResource(intent.getStringExtra("header")!!.toInt())
-        findViewById<TextView>(R.id.tituloTextView).text=intent.getStringExtra("titulo")
+        val tit=intent.getStringExtra("titulo")
+        findViewById<TextView>(R.id.tituloTextView).text=tit
         findViewById<TextView>(R.id.sinopsisTextView).text=intent.getStringExtra("sinop")
+        val ts=findViewById<TextView>(R.id.numSeats)
+        ts.text="Asientos disponibles: ${20-s!!.length}"
 
-
-        /*intent.getStringExtra("header")?.let { binding.headerImageView.setImageResource(it.toInt()) }
-        intent.getStringExtra("titulo")?.let { binding.tituloTextView.text=it }
-        intent.getStringExtra("sinop")?.let { binding.sinopsisTextView.text=it }*/
+        if(s.isEmpty())
+            ts.isActivated=false
+        else
+            ts.setOnClickListener { startActivity(Intent(this,SeatSelectionActivity::class.java).putExtra("titulo",tit)) }
 
     }
 }

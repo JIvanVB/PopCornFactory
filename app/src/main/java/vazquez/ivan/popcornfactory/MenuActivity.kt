@@ -57,7 +57,8 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this,DetallePeliculaActivity::class.java)
                 .putExtra("header",series[position].header.toString())
                 .putExtra("titulo",series[position].titulo)
-                .putExtra("sinop",series[position].sinop)) }
+                .putExtra("sinop",series[position].sinop)
+                .putExtra("seats",series[position].seats)) }
 
     }
     private class AdapadorPeliculas(context: Context, peliculas: ArrayList<Pelicula>): BaseAdapter(){
